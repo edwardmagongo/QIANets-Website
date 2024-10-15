@@ -29,7 +29,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   
-	<link href="bulma.min.css" rel="stylesheet" type="text/css">
+  <link href="bulma.min.css" rel="stylesheet" type="text/css">
   <link href="bulma-carousel.min.css" rel="stylesheet" type="text/css">
   <link href="bulma-slider.min.css" rel="stylesheet" type="text/css">
   <link href="index.css" rel="stylesheet" type="text/css">
@@ -122,18 +122,11 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Convolutional neural networks (CNNs) have made significant advances in computer vision tasks, yet their high inference times and latency often limit real-world applicability. While model compression techniques have gained popularity as solutions, they often overlook the critical balance between low latency and uncompromised accuracy. By harnessing quantum-inspired pruning, tensor decomposition and annealing-based matrix factorization – three quantum-inspired concepts – we introduce QIANets: a novel approach of redesigning the traditional GoogLeNet, DenseNet, and ResNet-18 model architectures to process more parameters and computations whilst maintaining low inference times. Despite experimental limitations, the method was tested and evaluated, demonstrating reductions in inference times, along with effective accuracy preservations
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Convolutional neural networks (CNNs) have made significant advances in computer vision tasks, yet their high inference times and latency often limit real-world applicability.
+	    While model compression techniques have gained popularity as solutions, they often overlook the critical balance between low latency and uncompromised accuracy. 
+	    By harnessing quantum-inspired pruning, tensor decomposition and annealing-based matrix factorization – three quantum-inspired concepts – 
+	    we introduce QIANets: a novel approach of redesigning the traditional GoogLeNet, DenseNet, and ResNet-18 model architectures to process more parameters and computations whilst maintaining low inference times. 
+            Despite experimental limitations, the method was tested and evaluated, demonstrating reductions in inference times, along with effective accuracy preservations
           </p>
         </div>
       </div>
@@ -155,49 +148,49 @@
             The field of computer vision (CV) has recently experienced a substantial rise in interest (Su &amp; Crandall, 2021). This surge has created transformative advancements, driving the development of14 deep learning models, particularly those based on the convolutional architecture, such as DenseNet, GoogLeNet, and ResNet-18. These methods have significantly optimized neural networks for image processing tasks, achieving state-of-the-art performance across multiple benchmarks. (Anumol, 2023; He et al., 2015; Szegedy et al. 2015) However, the increasing computational complexity, memory consumption, and model size – often comprising millions to billions of parameters – pose substantial challenges for deployment, especially in time-sensitive and computationally-limited scenarios. The demand for low-latency processing in real-time applications, such as image processing and automated CV systems, is critical; compact models are needed for faster responses (Honegger et al., 2014). 
 		 </p>
 		  <p>
-			  To address these issues, researchers have explored various optimization techniques to reduce inference times and latency while maintaining high accuracy. Model compression techniques such as pruning, quantization, and knowledge distillation have shown promise in enhancing model efficiency (Li et al., 2023). Yet, these methods often come with trade-offs that can impact model performance, necessitating a careful balance between energy efficiency and accuracy. 
+		To address these issues, researchers have explored various optimization techniques to reduce inference times and latency while maintaining high accuracy. Model compression techniques such as pruning, quantization, and knowledge distillation have shown promise in enhancing model efficiency (Li et al., 2023). Yet, these methods often come with trade-offs that can impact model performance, necessitating a careful balance between energy efficiency and accuracy. 
 		  </p>
 		  <p>
-				In recent years, the principles of quantum computing have emerged as an avenue for accelerating inference in machine learning (Divya &amp; Dinesh Peter, 2021). Quantum-inspired methods, which leverage phenomena such as quantum optimization algorithms, strive to maintain model performance by reducing computational requirements, thereby offering significant speedups for certain tasks (Pandey et al., 2023). Meanwhile, traditional model compression techniques reduce the size of neural networks by removing less important weights, sacrificing accuracy for lower latency (Francy &amp; Singh, 2024). By integrating concepts from quantum mechanics into convolutional neural network (CNN) models, our approach seeks to address these limitations. We explore the potential of designing CNNs to balance improved inference times with minimal accuracy loss, creating a novel solution. 
-		  </p>
-			<p>
-				Within this context, we employ three key quantum-inspired principles: 1. quantum-inspired pruning: reducing model size by removing unnecessary parameters, guided by quantum approximation algorithms; 2. tensor decomposition: breaking down high-dimensional tensors into smaller component to reduce computational complexity; and 3. annealing-based matrix factorization: optimizing matrix factorization by using annealing techniques to find efficient representations of the data.
+		In recent years, the principles of quantum computing have emerged as an avenue for accelerating inference in machine learning (Divya &amp; Dinesh Peter, 2021). Quantum-inspired methods, which leverage phenomena such as quantum optimization algorithms, strive to maintain model performance by reducing computational requirements, thereby offering significant speedups for certain tasks (Pandey et al., 2023). Meanwhile, traditional model compression techniques reduce the size of neural networks by removing less important weights, sacrificing accuracy for lower latency (Francy &amp; Singh, 2024). By integrating concepts from quantum mechanics into convolutional neural network (CNN) models, our approach seeks to address these limitations. We explore the potential of designing CNNs to balance improved inference times with minimal accuracy loss, creating a novel solution. 
 		  </p>
 		  <p>
-				Our work addresses the following research question: <strong>How can principles from quantum computing be used to design and optimize CNNs to reduce latency and improve inference times, while still maintaining stable accuracies across various models?</strong> 
+		Within this context, we employ three key quantum-inspired principles: 1. quantum-inspired pruning: reducing model size by removing unnecessary parameters, guided by quantum approximation algorithms; 2. tensor decomposition: breaking down high-dimensional tensors into smaller component to reduce computational complexity; and 3. annealing-based matrix factorization: optimizing matrix factorization by using annealing techniques to find efficient representations of the data.
 		  </p>
-			<p>
-				In this paper, we propose a Quantum-Integrated Adaptive Networks (QIANets) – a comprehensive framework that integrates these quantum computing techniques into the DenseNet, GoogLeNet, and ResNet-18 architectures. To the best of our knowledge, this is the first attempt made to: 1. apply quantum computing-inspired algorithms into the models’ architectures to reduce computational requirements and achieve efficient performance improvements, and 2) specifically target these models.
+		  <p>
+		Our work addresses the following research question: <strong>How can principles from quantum computing be used to design and optimize CNNs to reduce latency and improve inference times, while still maintaining stable accuracies across various models?</strong> 
 		  </p>
-			<p>
-The contributions of this work include:
+	          <p>
+		In this paper, we propose a Quantum-Integrated Adaptive Networks (QIANets) – a comprehensive framework that integrates these quantum computing techniques into the DenseNet, GoogLeNet, and ResNet-18 architectures. To the best of our knowledge, this is the first attempt made to: 1. apply quantum computing-inspired algorithms into the models’ architectures to reduce computational requirements and achieve efficient performance improvements, and 2) specifically target these models.
 		  </p>
-			<p>
-• QIANets: a comprehensive framework that integrates QAOA-inspired pruning, tensor
-decomposition and quantum annealing-inspired matrix factorization into three CNNs.
+		  <p>
+		The contributions of this work include:
 		  </p>
-			<p>
-				
-• An exploration of the trade-offs between latency, inference time, and accuracy, highlighting
-the effects of applying quantum principles to CNN models for real-time optimization.
-          </p>
-		</div>
-      </div>
+		  <p>
+		• QIANets: a comprehensive framework that integrates QAOA-inspired pruning, tensor
+		decomposition and quantum annealing-inspired matrix factorization into three CNNs.
+		  </p>
+		  <p>		
+		• An exploration of the trade-offs between latency, inference time, and accuracy, highlighting
+		the effects of applying quantum principles to CNN models for real-time optimization.
+         	 </p>
 	</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section">
-	<div class="container is-max-desktop"		 
-		 <!-- Related Works. -->
+<div class="container is-max-desktop"		 
+       <!-- Related Works. -->
   <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Related Works</h2>
 		  <div class="content has-text-justified">
-			  
 		  
 		  <p>
-		  Our proposed method builds upon the ideas of model compression &amp; quantum-inspired techniques to improve the inference times of CNNs.</p>
+		  Our proposed method builds upon the ideas of model compression &amp; 
+		  quantum-inspired techniques to improve the inference times of CNNs.
+		  </p>
 
         <!-- Model Compression Technique. -->
         <h3 class="title is-4" style="text-align: center;">2.1 Model Compression Techniques:</h3>
@@ -574,11 +567,11 @@ the effects of applying quantum principles to CNN models for real-time optimizat
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-           <a href="" target="_blank" style="display: inline-flex; align-items: center; margin: 0 10px;">
+           <a href="https://github.com/edwardmagongo/Quantum-Inspired-Model-Compression" target="_blank" style="display: inline-flex; align-items: center; margin: 0 10px;">
         <img src="Github Logo.jpg" alt="GitHub Logo" style="width: 42px; height: 42px; margin-right: 5px;"> 
         <span>GitHub Code</span>
     </a>
-<a href="" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none;">
+<a href="https://doi.org/10.48550/arXiv.2410.10318" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none;">
     <span class="icon" style="width: 54px; height: 54px; display: inline-flex; justify-content: center; align-items: center;">
         <i class="fas fa-file-pdf" style="font-size: 36px;"></i> <!-- Adjust the font size as needed -->
     </span>
@@ -593,6 +586,5 @@ the effects of applying quantum principles to CNN models for real-time optimizat
 <div style="text-align: center;">
     <p>© 2024 QIANets. All Rights Reserved</p>
 </div>
-
 </body>
 </html>
