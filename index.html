@@ -145,22 +145,49 @@
           <h2 class="title is-3">Introduction</h2>
 		 <div class="content has-text-justified">
           <p>
-            The field of computer vision (CV) has recently experienced a substantial rise in interest (Su &amp; Crandall, 2021). This surge has created transformative advancements, driving the development of14 deep learning models, particularly those based on the convolutional architecture, such as DenseNet, GoogLeNet, and ResNet-18. These methods have significantly optimized neural networks for image processing tasks, achieving state-of-the-art performance across multiple benchmarks. (Anumol, 2023; He et al., 2015; Szegedy et al. 2015) However, the increasing computational complexity, memory consumption, and model size – often comprising millions to billions of parameters – pose substantial challenges for deployment, especially in time-sensitive and computationally-limited scenarios. The demand for low-latency processing in real-time applications, such as image processing and automated CV systems, is critical; compact models are needed for faster responses (Honegger et al., 2014). 
+            The field of computer vision (CV) has recently experienced a substantial rise in interest (Su &amp; Crandall, 2021). This surge has created transformative advancements, driving the development of deep learning models, particularly those based on the convolutional architecture, such as DenseNet (Huang et al., 2017). GoogLeNet (Szegedy et al. 2015), and ResNet-18 (He et al., 2015). These 
+	    methods have significantly optimized neural networks for image processing tasks, achieving state-of-the-art performance across multiple benchmarks (Anumol et al., 2023). However, the increasing computational complexity, memory consumption, and model size – often comprising millions to
+            billions of parameters – pose substantial challenges for deployment, especially in time-sensitive and
+            computationally-limited scenarios. The demand for <em>low-latency processing</em> in real-time applications,
+            such as image processing and automated CV systems, is critical; compact models are needed for
+            faster responses (Honegger et al., 2014). 
 		 </p>
 		  <p>
-		To address these issues, researchers have explored various optimization techniques to reduce inference times and latency while maintaining high accuracy. Model compression techniques such as pruning, quantization, and knowledge distillation have shown promise in enhancing model efficiency (Li et al., 2023). Yet, these methods often come with trade-offs that can impact model performance, necessitating a careful balance between energy efficiency and accuracy. 
+	   To address these issues, researchers have explored various optimization techniques to reduce inference
+           times and latency while maintaining high accuracy. Model compression techniques such as pruning,
+           quantization, and knowledge distillation have shown promise in enhancing model efficiency (Li
+           et al., 2023). Yet, these methods often come with trade-offs that can impact model performance,
+           necessitating a careful balance between energy efficiency and accuracy.
 		  </p>
 		  <p>
-		In recent years, the principles of quantum computing have emerged as an avenue for accelerating inference in machine learning (Divya &amp; Dinesh Peter, 2021). Quantum-inspired methods, which leverage phenomena such as quantum optimization algorithms, strive to maintain model performance by reducing computational requirements, thereby offering significant speedups for certain tasks (Pandey et al., 2023). Meanwhile, traditional model compression techniques reduce the size of neural networks by removing less important weights, sacrificing accuracy for lower latency (Francy &amp; Singh, 2024). By integrating concepts from quantum mechanics into convolutional neural network (CNN) models, our approach seeks to address these limitations. We explore the potential of designing CNNs to balance improved inference times with minimal accuracy loss, creating a novel solution. 
+	   In recent years, the principles of quantum computing have emerged as an avenue for accelerating
+           inference in machine learning (Divya & Dinesh Peter, 2021). Quantum-inspired methods, which
+           leverage phenomena such as quantum optimization algorithms, strive to maintain model performance
+           by reducing computational requirements, thereby offering significant speedups for certain tasks
+           (Pandey et al., 2023). Meanwhile, traditional model compression techniques reduce the size of neural
+           networks by removing less important weights, <em>acrificing accuracy for lower latency </em> (Francy &
+	   Singh, 2024). By integrating concepts from quantum mechanics into convolutional neural network
+           (CNN) models, our approach seeks to address these limitations. We explore the potential of designing
+           CNNs to balance improved inference times with minimal accuracy loss, creating a novel solution.
 		  </p>
 		  <p>
-		Within this context, we employ three key quantum-inspired principles: 1. quantum-inspired pruning: reducing model size by removing unnecessary parameters, guided by quantum approximation algorithms; 2. tensor decomposition: breaking down high-dimensional tensors into smaller component to reduce computational complexity; and 3. annealing-based matrix factorization: optimizing matrix factorization by using annealing techniques to find efficient representations of the data.
+	   Within this context, we employ three key quantum-inspired principles: 1. quantum-inspired pruning:
+           reducing model size by removing unnecessary parameters, guided by quantum approximation algorithms; 
+	   2. tensor decomposition: breaking down high-dimensional tensors into smaller components
+           to reduce computational complexity; and 3. annealing-based matrix factorization: optimizing matrix
+           factorization by using annealing techniques to find efficient representations of the data.
 		  </p>
 		  <p>
-		Our work addresses the following research question: <strong>How can principles from quantum computing be used to design and optimize CNNs to reduce latency and improve inference times, while still maintaining stable accuracies across various models?</strong> 
+	   Our work addresses the following research question: How can principles from quantum computing
+           be used to design and optimize CNNs to reduce latency and improve inference times, while still
+           maintaining stable accuracies across various models?
 		  </p>
 	          <p>
-		In this paper, we propose a Quantum-Integrated Adaptive Networks (QIANets) – a comprehensive framework that integrates these quantum computing techniques into the DenseNet, GoogLeNet, and ResNet-18 architectures. To the best of our knowledge, this is the first attempt made to: 1. apply quantum computing-inspired algorithms into the models’ architectures to reduce computational requirements and achieve efficient performance improvements, and 2) specifically target these models.
+	   In this paper, we propose a Quantum-Integrated Adaptive Networks (QIANets) – a comprehensive
+	   framework that integrates these quantum computing techniques into the DenseNet, GoogLeNet,
+	   and ResNet-18 architectures. To the best of our knowledge, this is the first attempt made to: 1)
+	   apply quantum computing-inspired algorithms into the models’ architectures to reduce computational
+	   requirements and achieve efficient performance improvements, and 2) specifically target these models.
 		  </p>
 		  <p>
 		The contributions of this work include:
@@ -186,7 +213,6 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Related Works</h2>
 		  <div class="content has-text-justified">
-		  
 		  <p>
 		  Our proposed method builds upon the ideas of model compression &amp; 
 		  quantum-inspired techniques to improve the inference times of CNNs.
@@ -196,11 +222,19 @@
         <h3 class="title is-4" style="text-align: center;">2.1 Model Compression Techniques:</h3>
         <div class="content has-text-justified">
           <p>
-            Pruning is one of the most effective ways to accelerate CNNs. Cheng et al. (2018) provided a comprehensive review of model compression techniques for deep neural networks (DNNs), specifically focusing on parameter pruning methods: the removal of individual weights based on importance. This significantly reduces model size, while generally preserving the model’s performance.
-	      </p>
-		  <p>
-			Despite the advancements in parameter pruning, overall conventional pruning techniques have limitations: 1) when applied during the training phase, as such a method may be costly, and 2) the risk of prematurely removing important data. Hou et al. (2022) proposed a novel methodology called CHEX for <em>training-based channel pruning</em> and regrowing of channels throughout the training process. By employing a column subset selection (CSS) formulation, CHEX allocates and reassigns channels across layers, allowing for significant model compression without requiring a fully pre-trained model
-          </p>
+        <em>Pruning</em> is one of the most effective ways to accelerate CNNs. Cheng et al. (2018) provided a comprehensive
+        review of model compression techniques for deep neural networks (DNNs), specifically
+        focusing on parameter pruning methods: the removal of individual weights based on importance.
+        This significantly reduces model size, while generally preserving the model’s performance.
+	  </p>
+	  <p>
+	Despite the advancements in parameter pruning, overall conventional pruning techniques have
+	limitations: 1) when applied during the training phase, as such a method may be costly, and 2) the
+	risk of prematurely removing important data. Hou et al. (2022) proposed a novel methodology called
+	CHEX for <em>training-based channel pruning</em> and regrowing of channels throughout the training process.
+	By employing a column subset selection (CSS) formulation, CHEX allocates and reassigns channels
+	across layers, allowing for significant model compression without requiring a fully pre-trained model.
+	  </p>
         </div>
 	  </div>
        
@@ -210,23 +244,37 @@
         <h3 class="title is-4">2.2 Quantum-Inspired Techniques for CNNs:</h3>
         <div class="content has-text-justified">
           <p>
-            Quantum computing is currently recognized as a potential game-changer for various fields, including NLP, due to its ability to process complex data more efficiently than classical computers. Shi et al. (2021) proposed a quantum-inspired architecture for convolutional neural networks (QICNNs), using complex-valued weights to enhance the representational capacity of traditional CNNs. The authors display that their QICNNs achieve higher classification accuracy and faster convergence on datasets compared to standard CNNs. In contrast, our methodology prioritizes structural optimization for greater computational efficiency. We focus on reducing latency and improving inference times by employing various quantum techniques to decrease computational overhead in the tested CNNs.
-		  </p>
-		  <p>
-			Hu et al. (2022) set a high standard in the field by addressing the unique challenges of compressing quantum neural networks (QNNs). Their CompVQC framework leverages an alternating direction method of multipliers (ADMM) approach, achieving a remarkable reduction in circuit depth by over 2.5 times with less than 1% accuracy degradation. While their results in QNN compression are impressive, our research introduces a novel first-attempt technique that applies QAOA-inspired pruning, tensor decomposition and quantum annealing-inspired matrix factorization to classical CNNs. Our work can complement their approach, underscoring the potential of integrating quantum concepts to classical networks, and may lead to further improvements in model efficiency.
-          </p>
+            Quantum computing is currently recognized as a potential game-changer for various fields, including
+	    NLP, due to its ability to process complex data more efficiently than classical computers. Shi et al.
+            (2021) proposed a quantum-inspired architecture for convolutional neural networks (QICNNs), using
+            complex-valued weights to enhance the representational capacity of traditional CNNs. The authors
+            display that their QICNNs achieve higher classification accuracy and faster convergence on datasets
+            compared to standard CNNs. In contrast, our methodology prioritizes structural optimization for
+            greater computational efficiency. We focus on reducing latency and improving inference times by
+            employing various quantum techniques to decrease computational overhead in the tested CNNs.
+	  </p>
+	 <p>
+	Hu et al. (2022) set a high standard in the field by addressing the unique challenges of compressing
+	quantum neural networks (QNNs). Their CompVQC framework leverages an alternating direction
+	method of multipliers (ADMM) approach, achieving a remarkable reduction in circuit depth by
+	over 2.5 times with less than 1% accuracy degradation. While their results in QNN compression
+	are impressive, our research introduces a novel first-attempt technique that applies QAOA-inspired
+	pruning, tensor decomposition and quantum annealing-inspired matrix factorization to classical
+	CNNs. Our work can complement their approach, underscoring the potential of integrating quantum
+	concepts to classical networks, and may lead to further improvements in model efficiency.
+	 </p>
         </div>
         <div class="content has-text-centered"> </div>
         <!--/ Quantum-Inspired Techniques for CNNs -->
       </div>
   </div>
-	</div>
+</div>
 <!--/ Related Works. -->
-		</section>
+</section>
 
 <section class="section">
-	<div class="container is-max-desktop" 
-	<!-- Methodology -->
+  <div class="container is-max-desktop" 
+  <!-- Methodology -->
   <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Methodology</h2>
@@ -235,234 +283,475 @@
         <h3 class="title is-4">3.1 Quantum-inspired pruning:</h3>
         <div class="content has-text-justified">
           <p>
-            Pruning is a widely applied technique for reducing CNN complexities; early studies have demonstrated the effectiveness of pruning in optimizing neural networks (LeCun et al., 1989; Hanson and Pratt, 1989; Hassibi et al., 1993). Our method implements a new approach to optimization through the <em> Quantum Approximate Optimization Algorithm </em> (QAOA). QAOA is designed to address problems in combinatorial optimization, which involves finding the best solution from a finite set of solutions.
-	      </p>
-		  <p>
-			Similarly, we adapt these principles by framing pruning as a probabilistic optimization problem. The goal is to identify the most important weights to retain while allowing others to approach zero. For a neural network layer represented by weights as a tensor: <em>W ∈ R<sup>C<sub>out</sub>×C<sub>in</sub>×H×W</sup></em>, we define the importance of each weight using its absolute value: <em>I<sub>i,j</sub> = </em>|W<sub><em>i,j</em></sub>|
+        <em>Pruning</em> is a widely applied technique for reducing CNN complexities; early studies have demon-
+	strated the effectiveness of pruning in optimizing neural networks (LeCun et al., 1989; Hanson and
+	Pratt, 1989; Hassibi et al., 1993). Our method implements a new approach to optimization through
+	the <em>Quantum Approximate Optimization Algorithm</em> (QAOA). QAOA (Fahri et al., 2022) is designed
+	to address problems in combinatorial optimization, which involves finding the best solution from a
+	finite set of solutions.
+	  </p>
+	 <p>
+	Similarly, we adapt these principles by framing pruning as a probabilistic optimization problem. 
+	The goal is to identify the most important weights to retain while allowing others to approach zero. 
+	For a neural network layer represented by weights as a tensor: 
+	<em>W ∈ R<sup>C<sub>out</sub>×C<sub>in</sub>×H×W</sup></em>, we define the importance of each weight using its absolute value:
+	<em>I<sub>i,j</sub> = </em>|W<sub><em>i,j</em></sub>|
           </p>
-		  <p>
-				To facilitate decision-making regarding weight retention, we normalize these importance scores with the softmax function to derive probabilities:
-		  </p>
-			<div style="text-align: center;">
-  		 <p style="font-size: 20px;">
-   			 P<sub>i,j</sub> = &#8721;<sub>k,l</sub> e<sup>I<sub>k,l</sub></sup> e<sup>I<sub>i,j</sub></sup>
- 		 </p><br> 
-</div>
-<p>
-	These probabilities are then utilized in a quantum-inspired decision-making process, where weights are selected for pruning based on a threshold , influenced by a hyperparameter known as layer sparsity.
+	<p>
+	To facilitate decision-making regarding weight retention, we normalize these importance scores with the 
+	softmax function to derive probabilities:
+	 </p>
+	<div style="text-align: center;">
+  		<p style="font-size: 20px;">
+   			P<sub>i,j</sub> = &#8721;<sub>k,l</sub> e<sup>I<sub>k,l</sub></sup> e<sup>I<sub>i,j</sub></sup>
+ 		</p><br> 
+	</div>
+	<p>
+	These probabilities are then utilized in a quantum-inspired decision-making process, 
+	where weights are selected for pruning based on a threshold λ, influenced by a hyperparameter known as 
+	layer sparsity α:
 	</p>
 	<div style="text-align: center;">
-  <p style="font-size: 20px;">
-    R<sub>i,j</sub> = 
-    <span style="display: inline-block; text-align: left; font-size: 20px; margin-top: 10px;">
-      <span style=" font-size: 16px;">1</span> 
-      <span style="font-size: 16px;">&nbsp; &nbsp;if P<sub>i,j</sub> ≥ λ</span><br>
-      <span style="font-size: 16px;;">0</span> 
-      <span style="font-size: 16px;">&nbsp; &nbsp;otherwise</span>
-    </span>
-  </p>
-</div><br>
-<p>
-		Here, Ri,j serves as a binary retain mask indicating whether a weight is pruned (set to 0) or retained. The threshold λ is calibrated to ensure that approximately 100α% of the weights are pruned.
-		
-		</p>
+  		<p style="font-size: 20px;">
+    			R<sub>i,j</sub> = 
+    		    <span style="display: inline-block; text-align: left; font-size: 20px; margin-top: 10px;">
+     		 	<span style=" font-size: 16px;">1</span> 
+      			<span style="font-size: 16px;">&nbsp; &nbsp;if P<sub>i,j</sub> ≥ λ</span><br>
+      			<span style="font-size: 16px;;">0</span> 
+      			<span style="font-size: 16px;">&nbsp; &nbsp;otherwise</span>
+    		    </span>
+  		</p>
+	</div><br>
+	<p>
+	Here, R<sub>i, j</sub> serves as a binary retain mask indicating whether a weight is pruned (set to 0) or retained. 
+	The threshold λ is calibrated to ensure that approximately 100α% of the weights are pruned.	
+	 </p>
 
-<p>
-		When implemented, we adopt an iterative approach for pruning the model across multiple stages. Each iteration recalculates the retain mask based on updated probabilities derived from the current weights. To enhance this process, we introduce a neighboring entanglement mechanism: when a weight is pruned, its adjacent weights in the tensor may also be pruned with a specified probability Pentangle. This mechanism simulates quantum entanglement, reflecting the idea that nearby weights may exhibit correlated behavior and can be pruned collectively. For convolutional layers specifically, this sequential pruning strategy is executed over several iterations, progressively reducing the number of parameters in the model while maintaining performance integrity.
-		
-		</p>
+	<p>
+	When implemented, we adopt an iterative approach for pruning the model across multiple stages.
+	Each iteration recalculates the retain mask based on updated probabilities derived from the current
+	weights. To enhance this process, we introduce a neighboring entanglement mechanism: when a
+	weight is pruned, its adjacent weights in the tensor may also be pruned with a specified probability
+	P<sub>entangle</sub>. This mechanism simulates quantum entanglement, reflecting the idea that nearby weights
+	may exhibit correlated behavior and can be pruned collectively. For convolutional layers specifically,
+	this sequential pruning strategy is executed over several iterations, progressively reducing the number
+	of parameters in the model while maintaining performance integrity.
+	 </p>
         </div>
         
 	<!-- Tensor Decomposition  -->
         <h3 class="title is-4">3.2 Tensor Decomposition</h3>
         <div class="content has-text-justified">
-          <p>
-  Tensor decomposition further reduces the dimensionality of the weight tensor while preserving essential information for accurate predictions. This technique is inspired by Quantum Circuit Learning (QCL), where high-dimensional tensors are decomposed into lower-dimensional forms for efficient training of quantum circuits.
-</p>
-
-<p>
+        <p>
+	<em>Tensor decomposition</em> further reduces the dimensionality of the weight tensor while preserving essential information for accurate predictions. 
+	This technique is inspired by Quantum Circuit Learning (QCL), where high-dimensional tensors are decomposed into lower-dimensional 
+	forms for efficient training of quantum circuits (Mitarai et al., 2018).
+	 </p>
+	<p>
 	For a weight tensor <em>W ∈ R<sup>C<sub>out</sub>×C<sub>in</sub>×H×W</sup></em>, we use 
-  Singular Value Decomposition (SVD) on its flattened matrix representation <em>W<sub>f</sub> ∈ R<sup>C<sub>out</sub>×(C<sub>in</sub>·H·W)</sup></em>, decomposing it as: <em>W<sub>f</sub> = UΣV<sup>T</sup></em>
-</p>
-
-<p>
-	Here, <em>U ∈ R<sup>C<sub>out</sub>xr</sup></em> and <em>V ∈ R<sup>(C<sub>in</sub>·H·W)xr</sup></em> are orthogonal matrices, and Σ ∈ R<sup>r×r</sup> is a diagonal matrix of singular values. The rank r, chosen as a hyperparameter, controls the compression level by retaining only the top r singular values, leading to a reduced rank approximation: <em>W<sub>f</sub> ≈ U<sub>r</sub> Σ<sub>r</sub> V<sub>r</sub><sup>T</sup></em>. This reduces the number of parameters and computational costs during inference. 
-</p>
-
-<p>
-  After tensor decomposition, the original weight tensor is reconstructed using the truncated matrices, reshaping the compressed weights back into their original form. This process significantly decreases the number of parameters without greatly affecting model performance. We apply this method to each convolutional layer, creating lower-rank approximations to control the model’s capacity.
-</p>
-  <img src="Diagram.png" alt=""/>
+  	Singular Value Decomposition (SVD) (Wang et al., 2021) on its flattened matrix representation 
+	<em>W<sub>f</sub> ∈ R<sup>C<sub>out</sub>×(C<sub>in</sub>·H·W)</sup></em>, decomposing it as: 
+	 </p>
+	<p>
+	<em>W<sub>f</sub> = UΣV<sup>T</sup></em>
+	 </p>
+	<img src="Diagram.png" alt=""/>
         <div class="content has-text-centered"> </div>
-	<p> Figure 1: An illustrative diagram showcasing the framework used for Quantum-Inspired Pruning. Tensor Decomposition, and Quantum Annealing-Inspired Matrix Factorization. </p>
-		  </div>
-<!--/ Tensor Decomposition -->
+	<p> Figure 1: An illustrative diagram showcasing the framework used for Quantum-Inspired Pruning, 
+	Tensor Decomposition, and Quantum Annealing-Inspired Matrix Factorization. </p>
+	<p>
+	Here, <em>U ∈ R<sup>C<sub>out</sub>xr</sup></em> and <em>V ∈ R<sup>(C<sub>in</sub>·H·W)xr</sup></em> 
+	are orthogonal matrices, and Σ ∈ R<sup>r×r</sup> is a diagonal matrix of singular values. 
+	The rank r, chosen as a hyperparameter, controls the compression level by retaining only the top r singular values, 
+	leading to a reduced rank approximation: 
+	 </p>
+	<p>
+	<em>W<sub>f</sub> ≈ U<sub>r</sub> Σ<sub>r</sub> V<sub>r</sub><sup>T</sup></em>. 
+	 </p>
+	<p>
+	This reduces the number of parameters and computational costs during inference. 
+	 </p>
+	<p>
+  	After tensor decomposition, the original weight tensor is reconstructed using the truncated matrices, 
+	reshaping the compressed weights back into their original form. This process significantly decreases 
+	the number of parameters without greatly affecting model performance. We apply this method to each convolutional layer, 
+	creating lower-rank approximations to control the model’s capacity.
+	 </p>
+		
+	<!--/ Tensor Decomposition -->
 			
 	<!-- Quantum annealing-inspired matrix factorization -->
         <h3 class="title is-4">3.3 Quantum annealing inspired matrix factorisation</h3>
         <div class="content has-text-justified">
-          <p>
-            Quantum annealing solves optimization problems by evolving a system toward its lowest energy state. We apply this concept to factorize weight tensors, treating the factorization as an optimization problem aimed at minimizing the difference between the original weights and their factorized representation.
-	      </p>
-		  <p>
-  Given a weight matrix W ∈ R<sup>m×n</sup>, we seek to factor it into two lower-dimensional matrices, 
-  W<sub>1</sub> ∈ R<sup>m×r</sup> and W<sub>2</sub> ∈ R<sup>r×n</sup>, where r is a hyperparameter 
-  that controls the rank: W ≈ W<sub>1</sub>W<sub>2</sub>.
-</p>
-
-<p>
-  The objective is to minimize the reconstruction error: 
-  L(W<sub>1</sub>, W<sub>2</sub>) = ∥W − W<sub>1</sub>W<sub>2</sub>∥<sup>2</sup><sub>F</sub>
-</p>
-
-<p>
-  Here, ∥ · ∥<sub>F</sub> denotes the Frobenius norm, measuring the difference between the original and factorized matrices. 
-  We use an iterative optimization procedure inspired by quantum annealing to minimize the loss.
-</p>
-
-<p>
-  The factorization employs gradient-based optimization, initializing W<sub>1</sub> and W<sub>2</sub> randomly. We iteratively 
-  minimize the loss function using an optimizer like LBFGS, suitable for small parameter sets and non-convex landscapes. 
-  This optimization simulates quantum annealing by gradually reducing the step size, ensuring convergence to a local minimum. 
-  Once complete, the compressed weight matrix is defined as: W<sub>c</sub> = W<sub>1</sub>W<sub>2</sub>. This compressed 
-  matrix replaces the original matrix, reducing model complexity while maintaining performance.
-</p>
-		  		</div>
-			</div>
-		</div>
+        <p>
+        Quantum annealing solves optimization problems by evolving a system toward its lowest energy state (Gherardi & Leporati, 2024). 
+	We apply this concept to factorize weight tensors, treating the factorization as an optimization problem aimed at minimizing 
+	the difference between the original weights and their factorized representation.
+	 </p>
+	<p>
+  	Given a weight matrix W ∈ R<sup>m×n</sup>, we seek to factor it into two lower-dimensional matrices, 
+ 	W<sub>1</sub> ∈ R<sup>m×r</sup> and W<sub>2</sub> ∈ R<sup>r×n</sup>, where r is a hyperparameter 
+  	that controls the rank:
+	 </p>
+	<p> W ≈ W<sub>1</sub>W<sub>2</sub>
+	 </p>
+	<p>
+  	The objective is to minimize the reconstruction error: 
+	 </p>
+	<p>
+  	L(W<sub>1</sub>, W<sub>2</sub>) = ∥W − W<sub>1</sub>W<sub>2</sub>∥<sup>2</sup><sub>F</sub>
+	 </p>
+	<p>
+  	Here, ∥ · ∥<sub>F</sub> denotes the Frobenius norm, measuring the difference between the original and factorized matrices. 
+ 	We use an iterative optimization procedure inspired by quantum annealing to minimize the loss.
+	 </p>
+	<p>
+  	The factorization employs gradient-based optimization, initializing W<sub>1</sub> and W<sub>2</sub> randomly. We iteratively 
+  	minimize the loss function using an optimizer like LBFGS, suitable for small parameter sets and non-convex landscapes. 
+  	This optimization simulates quantum annealing by gradually reducing the step size, ensuring convergence to a local minimum. 
+  	Once complete, the compressed weight matrix is defined as: 
+	<p>
+	W<sub>c</sub> = W<sub>1</sub>W<sub>2</sub>. 
+	 </p>
+	<p>
+	This compressed matrix replaces the original matrix, reducing model complexity while maintaining performance.
+	  </p>
 	</div>
+       </div>
+      </div>
+     </div>
+	  
     <!--/ Methodology. -->
-	</section>
-
+	  
+</section>
 <section class="section">
-	<div class="container is-max-desktop"		 
-		 <!-- Experiments and results -->
+  <div class="container is-max-desktop"		 
+  <!-- Experiments and results -->
   <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Experiments and Results</h2>
-		  <div class="content has-text-justified">
-			  
-		  <p>
-		  We applied our method to compress three CNNs: DenseNet, GoogLeNet, and ResNet-18, all on the CIFAR-10 dataset. These networks were selected for their different design structures and computational demands, such as parameter count, depth, and layer types, providing a comprehensive assessment of our method’s effectiveness across different models. We evaluated the models for image classification performance, focusing on metrics such as inference time, speedup ratio, and accuracy.</p>
+   <div class="column is-four-fifths">
+    <h2 class="title is-3">Experiments and Results</h2>
+     <div class="content has-text-justified">	  
+	<p>
+	We applied our method to compress three CNNs: DenseNet, GoogLeNet, and ResNet-18, all on the CIFAR-10 dataset. 
+	These networks were selected for their different design structures and computational demands, such as parameter count, 
+	depth, and layer types, providing a comprehensive assessment of our method’s effectiveness across different models. 
+	We evaluated the models for image classification performance, focusing on metrics such as inference time, speedup ratio, and accuracy.
+	 </p>
 			 
-		<p> 
-		Each experiment involved 1) applying the QIANets framework to the respective model architecture and 2) evaluating the models and comparing them to their baseline counterparts. <em>The results, including the networks’ changes before and after compression, are shown in Table 1.</em></p>
-			  
-		<p>Table 1: Model Performance Comparison Before and After Compression with rounded figures</p>
+	<p> 
+	Each experiment involved 1) applying the QIANets framework to the respective model architecture and 
+	2) evaluating the models and comparing them to their baseline counterparts. 
+	<em>The results, including the networks’ changes before and after compression, are shown in Table 1.</em>
+	 </p>		  
+	<p>Table 1: Model Performance Comparison Before and After Compression with rounded figures
+	 </p>
 
-<table style="width:100%; text-align:center; border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th style="border: 1px solid black; padding: 8px;">Model</th>
-      <th style="border: 1px solid black; padding: 8px;">Base Accuracy</th>
-      <th style="border: 1px solid black; padding: 8px;">Base Latency (T/I)</th>
-      <th style="border: 1px solid black; padding: 8px;">New Accuracy</th>
-      <th style="border: 1px solid black; padding: 8px;">New Latency (T/I)</th>
-      <th style="border: 1px solid black; padding: 8px;">Compression Ratio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="border: 1px solid black; padding: 8px;">GoogLeNet</td>
-      <td style="border: 1px solid black; padding: 8px;">94%</td>
-      <td style="border: 1px solid black; padding: 8px;">0.00096</td>
-      <td style="border: 1px solid black; padding: 8px;">86%</td>
-      <td style="border: 1px solid black; padding: 8px;">0.00083</td>
-      <td style="border: 1px solid black; padding: 8px;">1:0.52</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 8px;">ResNet-18</td>
-      <td style="border: 1px solid black; padding: 8px;">93%</td>
-      <td style="border: 1px solid black; padding: 8px;">0.000011</td>
-      <td style="border: 1px solid black; padding: 8px;">87%</td>
-      <td style="border: 1px solid black; padding: 8px;">0.00007</td>
-      <td style="border: 1px solid black; padding: 8px;">1:0.61</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid black; padding: 8px;">DenseNet</td>
-      <td style="border: 1px solid black; padding: 8px;">94%</td>
-      <td style="border: 1px solid black; padding: 8px;">0.000050</td>
-      <td style="border: 1px solid black; padding: 8px;">88%</td>
-      <td style="border: 1px solid black; padding: 8px;">0.00042</td>
-      <td style="border: 1px solid black; padding: 8px;">1:0.56</td>
-    </tr>
-  </tbody>
-</table>
-
+	<table style="width:100%; text-align:center; border-collapse: collapse;">
+  	  <thead>
+    	   <tr>
+      	    <th style="border: 1px solid black; padding: 8px;">Model</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Base Accuracy</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Base Latency (T/I)</th>
+      	    <th style="border: 1px solid black; padding: 8px;">New Accuracy</th>
+      	    <th style="border: 1px solid black; padding: 8px;">New Latency (T/I)</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Compression Ratio</th>
+             </tr>
+         </thead>
+        <tbody>
+    	   <tr>
+      	   <td style="border: 1px solid black; padding: 8px;">GoogLeNet</td>
+      	   <td style="border: 1px solid black; padding: 8px;">94%</td>
+           <td style="border: 1px solid black; padding: 8px;">0.00096</td>
+           <td style="border: 1px solid black; padding: 8px;">86%</td>
+           <td style="border: 1px solid black; padding: 8px;">0.00083</td>
+           <td style="border: 1px solid black; padding: 8px;">1:0.52</td>
+            </tr>
+    	   <tr>
+           <td style="border: 1px solid black; padding: 8px;">ResNet-18</td>
+           <td style="border: 1px solid black; padding: 8px;">93%</td>
+           <td style="border: 1px solid black; padding: 8px;">0.000011</td>
+           <td style="border: 1px solid black; padding: 8px;">87%</td>
+           <td style="border: 1px solid black; padding: 8px;">0.00007</td>
+           <td style="border: 1px solid black; padding: 8px;">1:0.61</td>
+            </tr>
+           <tr>
+           <td style="border: 1px solid black; padding: 8px;">DenseNet</td>
+           <td style="border: 1px solid black; padding: 8px;">94%</td>
+           <td style="border: 1px solid black; padding: 8px;">0.000050</td>
+           <td style="border: 1px solid black; padding: 8px;">88%</td>
+           <td style="border: 1px solid black; padding: 8px;">0.00042</td>
+           <td style="border: 1px solid black; padding: 8px;">1:0.56</td>
+            </tr>
+         </tbody>
+         </table>
         <!-- Experimential setup -->
         <h3 class="title is-4" style="text-align: center;">4.1 Experimential setup</h3>
         <div class="content has-text-justified">
-          <p>
-            The experiments were conducted within the cloud-based PyTorch framework, utilizing the CIFAR-10 dataset. The CIFAR-10 dataset, which consists of 60,000 32x32 RGB color images in 10 classes, with 6,000 images per class, was split into training and validation sets with an 80/20 ratio. To meet the input size requirements of the models, images were resized to 224x224 pixels. Data preprocessing included normalizing pixel values to the range [-1, 1] using the mean and standard deviation of the dataset. Moreover, data augmentation strategies (random horizontal flipping and random cropping) were applied to generate data variability and improve the models’ performance on unseen data.
-	      </p>
-		  <p>
-			All computations were accelerated using CUDA on an NVIDIA A40 GPU via Runpod. Each model underwent training for 50 epochs utilizing the Adam optimizer, with an initial learning rate of 0.001 and weight decay of 1e-4. To run our experiments, the compute used was approximately 1,615,680 TFLOPS-seconds. To ensure consistency across models, batch sizes of 128 were used for training, while batch sizes of 256 were employed for both evaluation and testing within the dataset.
-          </p>
+	<p>
+        The experiments were conducted within the cloud-based PyTorch framework, utilizing the CIFAR-10 dataset (Krizhevsky & Hinton, 2009). 
+	The CIFAR-10 dataset, which consists of 60,000 32x32 RGB color images in 10 classes, with 6,000 images per class, 
+	was split into training and validation sets with an 80/20 ratio. To meet the input size requirements of the models, images were 
+	resized to 224x224 pixels. Data preprocessing included normalizing pixel values to the range [-1, 1] using the mean and standard 
+	deviation of the dataset. Moreover, data augmentation strategies (random horizontal flipping and random cropping) were applied to 
+	generate data variability and improve the models’ performance on unseen data.
+	 </p>
+	<p>
+	All computations were accelerated using CUDA on an NVIDIA A40 GPU via Runpod. Each model underwent training for 50 epochs utilizing
+	the Adam optimizer, with an initial learning rate of 0.001 and weight decay of 1e-4. To run our experiments, the compute used was 
+	approximately 1,615,680 TFLOPS-seconds. To ensure consistency across models, batch sizes of 128 were used for training, 
+	while batch sizes of 256 were employed for both evaluation and testing within the dataset.
+         </p>
         </div>
-	  </div>
-       
+      </div>
         <!--/ Exprimential setup -->
 
         <!-- Hyperparameter Tuning -->
         <h3 class="title is-4">4.2 Hyperparameter tuning</h3>
         <div class="content has-text-justified">
-          <p>
-            Hyperparameter tuning is performed using Optuna, a framework that implements a multitude of techniques to optimize certain parameters. Optuna experiments with various combinations of hyperparameters, including batch size, learning rate and ECA Kernel Size, and dynamically adjusts them based on each trial. Following each trial, validation accuracy is calculated to test the effectiveness of current parameters. This information dynamically refines the subsequent parameters, ultimately approaching optimized parameter configurations for model performance.
-		  </p>
+        <p>
+        Hyperparameter tuning is performed using Optuna, a framework that implements a multitude of techniques to optimize certain parameters.
+	Optuna experiments with various combinations of hyperparameters, including batch size, learning rate and ECA Kernel Size, 
+	and dynamically adjusts them based on each trial. Following each trial, validation accuracy is calculated to test the effectiveness 
+	of current parameters. This information dynamically refines the subsequent parameters, ultimately approaching optimized parameter 
+	configurations for model performance.
+	 </p>
         </div>
-		<!--/ Hyperparameter Tuning -->
+	<!--/ Hyperparameter Tuning -->
 		  
-        <!--/ Model specific analysis -->
-		<h3 class="title is-4">4.3 Model specific analysis</h3>
+        <!-- Model specific analysis -->
+	<h3 class="title is-4">4.3 Model specific analysis</h3>
         <div class="content has-text-centered"> 
-		  <p> To effectively accommodate the unique architectures of each model, we made targeted adjustments to the QIANets method. These modifications were carefully designed to be minimal, ensuring that all models were trained and evaluated under consistent and fair conditions throughout the experiments.
-		  </p>
-	  </div>
+	<p> 
+	To effectively accommodate the unique architectures of each model, we made targeted adjustments to the QIANets method. 
+	These modifications were carefully designed to be minimal, ensuring that all models were trained and evaluated under consistent 
+	and fair conditions throughout the experiments.
+	 </p>
+	</div>
         <!--/ Model specific analysis -->
 		
-		<!-- GoogleNet -->
+	<!-- GoogleNet -->
         <h3 class="title is-4">4.3.1 GoogleNet</h3>
         <div class="content has-text-justified">
-          <p>
-           GoogLeNet is a convolutional network with nine multi-scale processing Inception modules. Within our experiments, the QIANets framework targets these modules, reducing the weight in their convolutions: layer sparsity of <strong>0.1417</strong> (only 14.17% of weights were pruned), while employing a <strong>rank of 41</strong> to efficiently decompose and factorize these weights. ECA and Multi-Scale Fusion are applied to the outputs of the modules, integrating multi-scale attention into parallel branches.
-		  </p>
-		<p> <strong>Performance Progression Across Epochs:</strong> The training process involved 10 trials of 10 epochs each, followed by a final trial of 50 epochs. During Trial 0 of hyperparameter optimization, the model began with a validation accuracy of <strong>21.08%</strong> at Epoch 1 and quickly progressed to <strong>70.18%</strong> by Epoch 10, indicating rapid learning during the first stages of training. The highest validation accuracy result was <strong>80.19%</strong> throughout Trial 5. Ultimately, the final quantum-inspired GoogLeNet’s test accuracy was <strong>86.65%</strong>, representing a notable improvement from the earlier 80.19%, and closely approaching the baseline accuracy of <strong>94.29%</strong> after fine-tuning.
-		 </p>
-		<p><strong>Loss Reduction:</strong> Over the 50 epochs, the model’s loss steadily decreased, showing consistent improvement. It began at 2.5205 in Epoch 1 trial 0 and reduced to 0.8256 by Epoch 50, effectively minimizing error throughout training. A key outcome of this experiment was the final 13.65% reduction in inference time, minimizing to <strong>0.000835 seconds per image</strong>, which underscores the efficiency of our approach compared to the baseline GoogLeNet’s <strong>0.000967 seconds</strong>.
-		</p>
+        <p>
+        GoogLeNet is a convolutional network with nine multi-scale processing Inception modules. Within our experiments, 
+	the QIANets framework targets these modules, reducing the weight in their convolutions: layer sparsity of 
+	0.1417 (only 14.17% of weights were pruned), while employing a rank of 4 to efficiently decompose and factorize these weights.
+	ECA and Multi-Scale Fusion are applied to the <em>outputs</em> of the modules, integrating multi-scale attention into parallel 
+	branches.
+	 </p>
+	<p> 
+	<strong>Performance Progression Across Epochs:</strong> The training process involved 10 trials of 10 epochs each, 
+	followed by a final trial of 50 epochs. During Trial 0 of hyperparameter optimization, the model began with a validation accuracy of 
+	21.08% at Epoch 1 and quickly progressed to 70.18% by Epoch 10, indicating <em>rapid learning during the first stages of training</em>. 
+	The highest validation accuracy result happened to be 80.19% throughout Trial 5. Ultimately, the final quantum-inspired GoogLeNet’s
+	test accuracy was 86.65%, representing a notable improvement from the earlier 80.19%, and closely approaching the baseline accuracy
+	of 94.29% after fine-tuning.
+	 </p>
+	<p>
+	<strong>Loss Reduction:</strong> Over the 50 epochs, the model’s loss steadily decreased, showing consistent improvement. 
+        It began at 2.5205 in Epoch 1 trial 0 and reduced to 0.8256 by Epoch 50, effectively minimizing error throughout training. 
+	A key outcome of this experiment was the final <strong>13.65%</strong> reduction in inference time, minimizing to 
+	0.000835 seconds per image, which underscores the efficiency of our approach compared to the baseline GoogLeNet’s
+	0.000967 seconds. <em>See table 2</em>
+	 </p>
+	<p>
+	Table 2: Training and validation metrics for GoogleNet
+	 </p>
 
+	<table style="width:100%; text-align:center; border-collapse: collapse;">
+  	  <thead>
+    	   <tr>
+      	    <th style="border: 1px solid black; padding: 8px;">Metric</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Quantum-Inspired GoogleNet</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Baseline GoogleNet</th>
+             </tr>
+         </thead>
+        <tbody>
+    	   <tr>
+      	   <td style="border: 1px solid black; padding: 8px;">Training Loss</td>
+      	   <td style="border: 1px solid black; padding: 8px;">0.7786</td>
+           <td style="border: 1px solid black; padding: 8px;">1.7066 (Epoch 1)</td>
+            </tr>
+    	   <tr>
+           <td style="border: 1px solid black; padding: 8px;">Validation Accuracy</td>
+           <td style="border: 1px solid black; padding: 8px;">80.19%</td>
+           <td style="border: 1px solid black; padding: 8px;">38.52% (Epoch 1)</td>
+           <tr>
+           <td style="border: 1px solid black; padding: 8px;">Test Loss</td>
+           <td style="border: 1px solid black; padding: 8px;">0.5732</td>
+           <td style="border: 1px solid black; padding: 8px;">0.2557</td>
+            </tr>
+	   <tr>
+           <td style="border: 1px solid black; padding: 8px;">Test Accuracy</td>
+           <td style="border: 1px solid black; padding: 8px;">86.65%</td>
+           <td style="border: 1px solid black; padding: 8px;">94.29%</td>
+            </tr>
+	  <tr>
+           <td style="border: 1px solid black; padding: 8px;">Average Inference Time/Image</td>
+           <td style="border: 1px solid black; padding: 8px;">0.000835 seconds (13.65% Faster)</td>
+           <td style="border: 1px solid black; padding: 8px;">0.000967 seconds</td>
+            </tr>
+         </tbody>
+         </table>
         </div>
-	  <!--/ GoogleNet -->
-		<!-- DenseNet -->
-		<h3 class="title is-4">4.3.2 DenseNet</h3>
+	<!--/ GoogleNet -->
+	<!-- DenseNet -->
+	<h3 class="title is-4">4.3.2 DenseNet</h3>
         <div class="content has-text-centered">
-		  <p>
-		 We experimented on DenseNet – a CNN structured with 12 <strong>dense blocks</strong>, with layer-by-layer connections. This intricate connectivity requires careful application of QAOA pruning to ensure that weight removal does not disrupt the model’s residual stream and overall flow of information within the network. To enhance channel-wise interactions, we apply ECA and Multi-Scale Fusion after the dense blocks, allowing the model to leverage both local and global feature representations effectively.
-		  </p>
-		<p> <strong>Performance Progression Across Epochs:</strong> DenseNet was trained over 10 trials of 10 epochs each, followed by a final trial of 50 epochs to fine-tune performance. During Trial 0, the model began with a validation accuracy of 9.66% at Epoch 1 and exhibited minimal improvement by Epoch 10, reaching 10.34%. In contrast, Trial 1 demonstrated significant learning progression, starting at 27.53% and achieving a remarkable 81.33% by Epoch 10. The highest validation accuracy across all trials peaked at 86.65% in Trial 1, where the model achieved a layer sparsity of approximately 0.3779 (nearly 62% of the weights were pruned while maintaining performance). After extensive fine-tuning, the final quantum-inspired DenseNet achieved a test accuracy of 88.52%, a significant improvement from the earlier 86.65%, and approaching the baseline accuracy of 94.05%.
-		 </p>
-		<p><strong>Loss Reduction:</strong> The model demonstrated steady loss reduction throughout the training process, beginning at 2.3028 during Epoch 1 in Trial 0 and decreasing to 0.5606 by Epoch 10 in Trial 1, indicating effective error minimization. This consistent decline reflects the model’s ability to optimize its parameters and improve performance across trials. One of the standout results of this experiment was the final reduction in inference time by 15.20%, dropping to 0.001043 seconds/image, marking a considerable improvement compared to the baseline DenseNet’s 0.00123 seconds.
-		</p>
-		</div>
-		  <!--/ DenseNet -->
-		<!-- ResNet -->
+	<p>
+	We experimented on DenseNet – a CNN structured with 12 dense blocks, with layer-by-layer connections. 
+	This intricate connectivity requires careful application of QAOA pruning to ensure that weight removal does not disrupt 
+	the model’s residual stream and overall flow of information within the network. To enhance channel-wise interactions, we apply 
+	ECA and Multi-Scale Fusion <em>after</em> the dense blocks, allowing the model to leverage both local and global 
+	feature representations effectively.
+	 </p>
+	<p> 
+	<strong>Performance Progression Across Epochs:</strong> DenseNet was trained over 10 trials of 10 epochs each, 
+	followed by a final trial of 50 epochs to fine-tune performance. During Trial 0, the model began with a validation accuracy of 9.66%
+	at Epoch 1 and exhibited minimal improvement by Epoch 10, reaching 10.34%. In contrast, Trial 1 demonstrated significant learning 
+	progression, starting at 27.53% and achieving a remarkable 81.33% by Epoch 10. The highest validation accuracy across all trials 
+	peaked at 86.65% in Trial 1, where the model achieved a layer sparsity of approximately 0.3779 (nearly 62% of the weights 
+	were pruned while maintaining performance). After extensive fine-tuning, the final quantum-inspired DenseNet achieved a test accuracy 
+	of 88.52%, a significant improvement from the earlier 86.65%, and approaching the baseline accuracy of 94.05%.
+	 </p>
+	<p>
+	<strong>Loss Reduction:</strong> The model demonstrated steady loss reduction throughout the training process, beginning at 2.3028 
+	during Epoch 1 in Trial 0 and decreasing to 0.5606 by Epoch 10 in Trial 1, indicating effective error minimization. 
+	This consistent decline reflects the model’s ability to optimize its parameters and improve performance across trials. 
+	One of the standout results of this experiment was the final reduction in inference time by <strong>15.20%</strong>, 
+	dropping to 0.001043 seconds/image, marking a considerable improvement compared to the baseline DenseNet’s 0.00123 seconds. 
+	See Table 3.
+	 </p>
+	<p>
+	Table 3: Training and validation metrics for DenseNet
+	 </p>
+	<table style="width:100%; text-align:center; border-collapse: collapse;">
+  	  <thead>
+    	   <tr>
+      	    <th style="border: 1px solid black; padding: 8px;">Metric</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Quantum-Inspired DenseNet</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Baseline DenseNet</th>
+             </tr>
+         </thead>
+        <tbody>
+    	   <tr>
+      	   <td style="border: 1px solid black; padding: 8px;">Training Loss</td>
+      	   <td style="border: 1px solid black; padding: 8px;">0.5351</td>
+           <td style="border: 1px solid black; padding: 8px;">2.3027</td>
+            </tr>
+    	   <tr>
+           <td style="border: 1px solid black; padding: 8px;">Validation Accuracy</td>
+           <td style="border: 1px solid black; padding: 8px;">81.33%</td>
+           <td style="border: 1px solid black; padding: 8px;">10.34%</td>
+           <tr>
+           <td style="border: 1px solid black; padding: 8px;">Test Loss</td>
+           <td style="border: 1px solid black; padding: 8px;">0.4712</td>
+           <td style="border: 1px solid black; padding: 8px;">0.2462</td>
+            </tr>
+	   <tr>
+           <td style="border: 1px solid black; padding: 8px;">Test Accuracy</td>
+           <td style="border: 1px solid black; padding: 8px;">88.52%</td>
+           <td style="border: 1px solid black; padding: 8px;">94.05%</td>
+            </tr>
+	  <tr>
+           <td style="border: 1px solid black; padding: 8px;">Average Inference Time/Image</td>
+           <td style="border: 1px solid black; padding: 8px;">0.000042 seconds (15.20% faster)</td>
+           <td style="border: 1px solid black; padding: 8px;">0.000050 seconds</td>
+            </tr>
+         </tbody>
+         </table>	
+	</div>
+	<!--/ DenseNet -->
+	<!-- ResNet -->
         <h3 class="title is-4">4.3.3 ResNet-18</h3>
         <div class="content has-text-justified">
-          <p>
-			  Lastly, ResNet-18 is a CNN characterized by its unique <strong>residual learning</strong> framework and shortcut connections that facilitate training in deep networks. Within our experiments, the QIANets framework targets the residual blocks in the model, reducing less significant weights and channels, detected by ECA’s straightforward 1D convolution. Feature maps are then combined by Multi-Scale Fusion and refined highlighting essential features across different scales.
-		  </p>
-		<p> <strong>Performance Progression:</strong> Throughout the trials, there were notable fluctuations in performance. The highest validation accuracy across all trials peaked at <strong>91.42%</strong> in <strong>Trial 4</strong>, where the model achieved a layer sparsity of approximately 0.3779 (meaning nearly 62% of the weights were pruned while maintaining performance). After extensive fine-tuning, the final quantum-inspired ResNet-18 reached a test accuracy of <strong>87.11%</strong>, a significant improvement from the earlier <strong>84.56%</strong> (the highest accuracy before the final fine-tuning) and approaching the baseline accuracy of <strong>93.11%</strong>.
-		 </p>
-		<p><strong>Loss Reduction:</strong> The loss reduction across trials also followed a clear downward trend. In <strong>Trial 3</strong>, with a layer sparsity of <strong>0.4805</strong> and a rank of 10, the validation loss dropped from <strong>1.9847</strong> in the first epoch to <strong>0.6321</strong> by the tenth epoch, indicating better model convergence. One of the standout results of this experiment was the final reduction in inference time by <strong>36.4%</strong>, dropping to <strong>0.00007</strong> seconds/image, marking a improvement compared to the baseline ResNet’s <strong>0.00011 seconds/image</strong>.
-		</p>
-
+        <p>
+	Lastly, ResNet-18 is a CNN characterized by its unique residual learning framework and shortcut connections that facilitate 
+	training in deep networks. Within our experiments, the QIANets framework targets the residual blocks in the model, reducing less 
+	significant weights and channels, detected by ECA’s straightforward 1D convolution. Feature maps are then combined by 
+	Multi-Scale Fusion and refined highlighting essential features across different scales.
+	 </p>
+	<p> 
+	<strong>Performance Progression:</strong> Throughout the trials, there were notable fluctuations in performance. 
+	The highest validation accuracy across all trials peaked at 91.42% in Trial 4, where the model achieved a layer sparsity 
+	of approximately 0.3779 (meaning nearly 62% of the weights were pruned while maintaining performance). 
+	After extensive fine-tuning, the final quantum-inspired ResNet-18 reached a test accuracy of 87.11%, a significant improvement 
+	from the earlier 84.56% (the highest accuracy before the final fine-tuning) and approaching the baseline accuracy of 93.11%.
+	 </p>
+	<p>
+	<strong>Loss Reduction:</strong> The loss reduction across trials also followed a clear downward trend. In Trial 3, with a layer 
+	sparsity of 0.4805 and a rank of 10, the validation loss dropped from 1.9847 in the first epoch to 0.6321 by the tenth epoch, 
+	indicating better model convergence. One of the standout results of this experiment was the final reduction in inference time 
+	by <strong>36.4%</strong>, dropping to <strong>0.00007</strong> seconds/image, marking a improvement compared to the 
+	baseline ResNet’s 0.00011 seconds/image. <em>See table 4</em>.
+	 </p>
+	<p>
+	Table 4: Training and validation metrics for ResNet-18
+	 </p>
+	<table style="width:100%; text-align:center; border-collapse: collapse;">
+  	  <thead>
+    	   <tr>
+      	    <th style="border: 1px solid black; padding: 8px;">Metric</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Quantum-Inspired ResNet</th>
+      	    <th style="border: 1px solid black; padding: 8px;">Baseline ResNet</th>
+             </tr>
+         </thead>
+        <tbody>
+    	   <tr>
+      	   <td style="border: 1px solid black; padding: 8px;">Training Loss</td>
+      	   <td style="border: 1px solid black; padding: 8px;">0.4078</td>
+           <td style="border: 1px solid black; padding: 8px;">0.6501</td>
+            </tr>
+    	   <tr>
+           <td style="border: 1px solid black; padding: 8px;">Validation Accuracy</td>
+           <td style="border: 1px solid black; padding: 8px;">90.25%</td>
+           <td style="border: 1px solid black; padding: 8px;">91.30%</td>
+           <tr>
+           <td style="border: 1px solid black; padding: 8px;">Test Loss</td>
+           <td style="border: 1px solid black; padding: 8px;">0.6447</td>
+           <td style="border: 1px solid black; padding: 8px;">0.3195</td>
+            </tr>
+	   <tr>
+           <td style="border: 1px solid black; padding: 8px;">Test Accuracy</td>
+           <td style="border: 1px solid black; padding: 8px;">87.11%</td>
+           <td style="border: 1px solid black; padding: 8px;">93.11%</td>
+            </tr>
+	  <tr>
+           <td style="border: 1px solid black; padding: 8px;">Average Inference Time/Image</td>
+           <td style="border: 1px solid black; padding: 8px;">0.00007 seconds (36.4% faster)</td>
+           <td style="border: 1px solid black; padding: 8px;">0.00011 seconds</td>
+            </tr>
+         </tbody>
+         </table>
         </div>
         <!--/ ResNet -->
       </div>
-	</div>
-</div>
+     </div>
+   </div>
 <!--/ Experiments and Results. -->
-		</section>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Analysis of QIANets Framework -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Conclusion</h2>
+        <div class="content has-text-justified">
+          <p>
+            The QIANets framework exhibits effective latency reductions across models, achieving compression ratios of x1.6 for ResNet, 
+	    x1.8 for DenseNet, and x1.9 for GoogleNet. These results fall slightly below certain CNN compression methods, where some methods
+	    have attained ratios as high as 10x with minimal reduction in accuracy. However, each model experienced steady loss reduction 
+	    across trails, neared the baseline accuracy after fine-tuning and demonstrated quicker inference times per images compared to 
+	    the baseline.
+	  </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Analysis of QIANets Framework -->
+  </div>
+</section>
+	
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Conclusion. -->
@@ -471,7 +760,10 @@
         <h2 class="title is-3">Conclusion</h2>
         <div class="content has-text-justified">
           <p>
-            In this paper, we introduced the QIANets framework and applied it to three prominent convolutional neural networks—DenseNet, GoogLeNet, and ResNet—with the objective of reducing latency andimproving inference times while maintaining minimal accuracy loss. Our experimental results showed varying degrees of success when applying quantum-inspired techniques, revealing important insights into the trade-offs between latency and accuracy across different architectures.
+            In this paper, we introduced the QIANets framework and applied it to three prominent convolutional neural networks—DenseNet,
+	    GoogLeNet, and ResNet—with the objective of reducing latency andimproving inference times while maintaining minimal accuracy
+	    loss. Our experimental results showed varying degrees of success when applying quantum-inspired techniques, revealing important
+	    insights into the trade-offs between latency and accuracy across different architectures.
           </p>
         </div>
       </div>
@@ -482,13 +774,14 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Limitations. -->
+	<!-- Limitations. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Limitations</h2>
         <div class="content has-text-justified">
           <p>
-            While our results demonstrate the potential of QIANets and quantum-inspired principles in model compression, they also reflect on several factors that influence the performance of our approach:
+            While our results demonstrate the potential of QIANets and quantum-inspired principles in model compression, they also 
+	    reflect on several factors that influence the performance of our approach:
           </p>
 			<ol>
   <li>
@@ -519,10 +812,25 @@
   Future works should address these limitations by conducting more in-depth experiments that assess 
   both the scalability and practical relevance of the quantum-inspired techniques.
 </p>
+</div>
+</div>
+</div>
+	<!--/ Limitations. -->
+</div>
+</section>
+	<!-- Acknowledgments and Disclosure of Funding. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Acknowledgments and Disclosure of Funding</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work was complete through the Algoverse program and the authors gratefully acknowledge the valuable knowledge and resources
+	    provided by the team. We also thank Sean O’Brien and the anonymous reviewers for their knowledgeable feedback.
+          </p>
         </div>
       </div>
     </div>
-    <!--/ Limitations. -->
+    <!--/ Acknowledgments and Disclosure of Funding. -->
   </div>
 </section>
 
