@@ -219,7 +219,7 @@
 		  </p>
 
         <!-- Model Compression Technique. -->
-        <h3 class="title is-4" style="text-align: center;">2.1 Model Compression Techniques:</h3>
+        <h3 class="title is-4" style="text-align: center;">2.1 Model Compression Techniques</h3>
         <div class="content has-text-justified">
           <p>
         <em>Pruning</em> is one of the most effective ways to accelerate CNNs. Cheng et al. (2018) provided a comprehensive
@@ -241,7 +241,7 @@
         <!--/ Model Compression Technique. -->
 
         <!-- Quantum-Inspired Techniques for CNNs -->
-        <h3 class="title is-4">2.2 Quantum-Inspired Techniques for CNNs:</h3>
+        <h3 class="title is-4">2.2 Quantum-Inspired Techniques for CNNs</h3>
         <div class="content has-text-justified">
           <p>
             Quantum computing is currently recognized as a potential game-changer for various fields, including
@@ -280,7 +280,7 @@
         <h2 class="title is-3">Methodology</h2>
 
         <!-- Quantum-inspired pruning -->
-        <h3 class="title is-4">3.1 Quantum-inspired pruning:</h3>
+        <h3 class="title is-4">3.1 Quantum-inspired pruning</h3>
         <div class="content has-text-justified">
           <p>
         <em>Pruning</em> is a widely applied technique for reducing CNN complexities; early studies have demon-
@@ -352,7 +352,7 @@
   	Singular Value Decomposition (SVD) (Wang et al., 2021) on its flattened matrix representation 
 	<em>W<sub>f</sub> ∈ R<sup>C<sub>out</sub>×(C<sub>in</sub>·H·W)</sup></em>, decomposing it as: 
 	 </p>
-	<p>
+	<p style="text-align: center;">
 	<em>W<sub>f</sub> = UΣV<sup>T</sup></em>
 	 </p>
 	<img src="Diagram.png" alt=""/>
@@ -365,7 +365,7 @@
 	The rank r, chosen as a hyperparameter, controls the compression level by retaining only the top r singular values, 
 	leading to a reduced rank approximation: 
 	 </p>
-	<p>
+	<p style="text-align: center;">
 	<em>W<sub>f</sub> ≈ U<sub>r</sub> Σ<sub>r</sub> V<sub>r</sub><sup>T</sup></em>. 
 	 </p>
 	<p>
@@ -393,12 +393,13 @@
  	W<sub>1</sub> ∈ R<sup>m×r</sup> and W<sub>2</sub> ∈ R<sup>r×n</sup>, where r is a hyperparameter 
   	that controls the rank:
 	 </p>
-	<p> W ≈ W<sub>1</sub>W<sub>2</sub>
+	<p style="text-align: center;">
+	W ≈ W<sub>1</sub>W<sub>2</sub>
 	 </p>
 	<p>
   	The objective is to minimize the reconstruction error: 
 	 </p>
-	<p>
+	<p style="text-align: center;">
   	L(W<sub>1</sub>, W<sub>2</sub>) = ∥W − W<sub>1</sub>W<sub>2</sub>∥<sup>2</sup><sub>F</sub>
 	 </p>
 	<p>
@@ -410,7 +411,7 @@
   	minimize the loss function using an optimizer like LBFGS, suitable for small parameter sets and non-convex landscapes. 
   	This optimization simulates quantum annealing by gradually reducing the step size, ensuring convergence to a local minimum. 
   	Once complete, the compressed weight matrix is defined as: 
-	<p>
+	<p style="text-align: center;">
 	W<sub>c</sub> = W<sub>1</sub>W<sub>2</sub>. 
 	 </p>
 	<p>
@@ -443,7 +444,8 @@
 	2) evaluating the models and comparing them to their baseline counterparts. 
 	<em>The results, including the networks’ changes before and after compression, are shown in Table 1.</em>
 	 </p>		  
-	<p>Table 1: Model Performance Comparison Before and After Compression with rounded figures
+	<p style="text-align: center;">
+	Table 1: Model Performance Comparison Before and After Compression with rounded figures
 	 </p>
 
 	<table style="width:100%; text-align:center; border-collapse: collapse;">
@@ -554,7 +556,7 @@
 	0.000835 seconds per image, which underscores the efficiency of our approach compared to the baseline GoogLeNet’s
 	0.000967 seconds. <em>See table 2</em>
 	 </p>
-	<p>
+	<p style="text-align: center;">
 	Table 2: Training and validation metrics for GoogleNet
 	 </p>
 
@@ -597,7 +599,7 @@
 	<!--/ GoogleNet -->
 	<!-- DenseNet -->
 	<h3 class="title is-4">4.3.2 DenseNet</h3>
-        <div class="content has-text-centered">
+        <div class="content has-text-justified">
 	<p>
 	We experimented on DenseNet – a CNN structured with 12 dense blocks, with layer-by-layer connections. 
 	This intricate connectivity requires careful application of QAOA pruning to ensure that weight removal does not disrupt 
@@ -622,7 +624,7 @@
 	dropping to 0.001043 seconds/image, marking a considerable improvement compared to the baseline DenseNet’s 0.00123 seconds. 
 	See Table 3.
 	 </p>
-	<p>
+	<p style="text-align: center;">
 	Table 3: Training and validation metrics for DenseNet
 	 </p>
 	<table style="width:100%; text-align:center; border-collapse: collapse;">
@@ -843,31 +845,31 @@
         <h2 class="title is-3">Referances</h2>
         <div class="content has-text-justified">
           <ol>
-	<li>Su, N. M., & Crandall, D. J. (2021). The affective growth of computer vision. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 9291–9300. <a href="https://doi.org/10.1109/CVPR46437.2021.00917">https://doi.org/10.1109/CVPR46437.2021.00917</a></li>
-        <li>Huang, G., Liu, Z., Van Der Maaten, L., & Weinberger, K. Q. (2017). Densely connected convolutional networks. In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 4700–4708. <a href="https://doi.org/10.1109/CVPR.2017.243">https://doi.org/10.1109/CVPR.2017.243</a></li>
-        <li>Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov, D., ... & Rabinovich, A. (2015). Going deeper with convolutions. In Proceedings of Vision and Pattern Recognition, pp. 1–9. <a href="https://doi.org/10.1109/CVPR.2015.7298594">https://doi.org/10.1109/CVPR.2015.7298594</a></li>
-        <li>He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 770–778. <a href="https://doi.org/10.1109/CVPR.2016.90">https://doi.org/10.1109/CVPR.2016.90</a></li>
-        <li>Anumol, C. S. (2023, November). Advancements in CNN Architectures for Computer Vision: A Comprehensive Review. In 2023 Annual International Conference on Emerging Research Areas: International Conference on Intelligent Systems (AICERA/ICIS), pp. 1–7. IEEE. <a href="https://doi.org/10.1109/AICERA/ICIS59538.2023.10420413">https://doi.org/10.1109/AICERA/ICIS59538.2023.10420413</a></li>
-        <li>Honegger, D., Oleynikova, H., & Pollefeys, M. (2014, September). Real-time and low latency embedded computer vision hardware based on a combination of FPGA and mobile CPU. In 2014 IEEE/RSJ International Conference on Intelligent Robots and Systems, pp. 4930–4935. IEEE. <a href="https://doi.org/10.1109/IROS.2014.6943263">https://doi.org/10.1109/IROS.2014.6943263</a></li>
-        <li>Li, Z., Li, H., & Meng, L. (2023). Model compression for deep neural networks: A survey. Computers, 12(3), 60. <a href="https://doi.org/10.3390/computers12030060">https://doi.org/10.3390/computers12030060</a></li>
-        <li>Divya, R., & Peter, J. D. (2021, November). Quantum machine learning: A comprehensive review on optimization of machine learning algorithms. In 2021 Fourth International Conference on Microelectronics, Signals & Systems (ICMSS), pp. 1–6. IEEE. <a href="https://doi.org/10.1109/ICMSS53060.2021.9673630">https://doi.org/10.1109/ICMSS53060.2021.9673630</a></li>
-        <li>Pandey, S., Basisth, N. J., Sachan, T., Kumari, N., & Pakray, P. (2023). Quantum machine learning for natural language processing application. Physica A: Statistical Mechanics and its Applications, 627, 129123. <a href="https://doi.org/10.1016/j.physa.2023.129123">https://doi.org/10.1016/j.physa.2023.129123</a></li>
-        <li>Francy, S., & Singh, R. (2024). Edge AI: Evaluation of Model Compression Techniques for Convolutional Neural Networks. arXiv preprint arXiv:2409.02134. <a href="https://doi.org/10.48550/arXiv.2409.02134">https://doi.org/10.48550/arXiv.2409.02134</a></li>
-        <li>Cheng, Y., Wang, D., Zhou, P., & Zhang, T. (2017). A survey of model compression and acceleration for deep neural networks. arXiv preprint arXiv:1710.09282. In Proceedings of the IEEE Signal Processing Magazine, 35(1), 126–136. <a href="https://doi.org/10.1109/MSP.2017.2765695">https://doi.org/10.1109/MSP.2017.276569        <li>Hou, Z., Qin, M., Sun, F., Ma, X., Yuan, K., Xu, Y., ... & Kung, S. Y. (2022). Chex: Channel exploration for CNN model compression. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 12287–12298. <a href="https://doi.org/10.1109/CVPR52688.2022.01197">https://doi.org/10.1109/CVPR52688.2022.01197</a></li>
-        <li>Han, S., Pool, J., Tran, J., & Dally, W. (2015). Learning both weights and connections for efficient neural network. Advances in Neural Information Processing Systems, 28. <a href="https://papers.nips.cc/paper/2015/hash/3e15cc52c93b93997f4c62e87d3d0ad7-Abstract.html">NIPS Link</a></li>
-        <li>Shi, S., Wang, Z., Cui, G., Wang, S., Shang, R., Li, W., ... & Gu, Y. (2022). Quantum-inspired complex convolutional neural networks. Applied Intelligence, 52(15), 17912–17921. <a href="https://doi.org/10.1007/s10489-022-03525-0">https://doi.org/10.1007/s10489-022-03525-0</a></li>
-        <li>Hu, Z., Dong, P., Wang, Z., Lin, Y., Wang, Y., & Jiang, W. (2022, October). Quantum neural network compression. In Proceedings of the 41st IEEE/ACM International Conference on Computer-Aided Design, pp. 1–9. <a href="https://doi.org/10.1145/3508352.3549382">https://doi.org/10.1145/3508352.3549382</a></li>
-        <li>Tomut, A., Jahromi, S. S., Singh, S., Ishtiaq, F., Muñoz, C., Bajaj, P. S., ... & Orus, R. (2024). CompactifAI: Extreme Compression of Large Language Models using Quantum-Inspired Tensor Networks. arXiv preprint arXiv:2401.14109. <a href="https/arXiv.2401.14109">https://doi.org/10.48550/arXiv.2401.14109</a></li>
-        <li>LeCun, Y., Boser, B., Denker, J. S., Henderson, D., Howard, R. E., Hubbard, W., & Jackel, L. D. (1989). Backpropagation applied to handwritten zip code recognition. Neural Computation, 1(4), 541–551. <a href="https://doi.org/10.1162/neco.1989.1.4.541">https://doi.org/10.1162/neco.1989.1.4.541</a></li>
-        <li>Hanson, S., & Pratt, L. (1988). Comparing biases for minimal network construction with backpropagation. Advances in Neural Information Processing Systems, 1.</li>
-        <li>Hassibi, B., Stork, D. G., & Wolff, G. J. (1993, March). Optimal brain surgeon and general network pruning. In IEEE International Conference on Neural Networks, pp. 293–299. IEEE.</li>
-        <li>Farhi, E., Goldstone, J., Gutmann, S., & Zhou, L. (2022). The quantum approximate optimization algorithm and the Sherrington-Kirkpatrick model at infinite size. Quantum, 6, 759.</li> <a href="https://doi.org/10.1038/nature14539">https://doi.org/10.1038/nature14539</a>
-        <li>Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning representations by back-propagating errors. Nature, 323(6088), 533–536. <a href="https://doi.org/10.1038/323533a0">https://doi.org/10.1038/323533a0</a></li>
-        <li>Bengio, Y., LeCun, Y., & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436–444. <a href="https://doi.org/10.1038/nature14539">https://doi.org/10.1038/nature14539</a></li>
-        <li>Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep learning. MIT press.</li>
-        <li>Hinton, G. E., & Salakhutdinov, R. R. (2006). Reducing the dimensionality of data with neural networks. Science, 313(5786), 504–507. <a href="https://doi.org/10.1126/science.1127647">https://doi.org/10.1126/science.1127647</a></li>
-        <li>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., ... & Polosukhin, I. (2017). Attention is all you need. Advances in Neural Information, 30. <a href="https://papers.nips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html">NIPS Link</a></li>
-        <li>Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). ImageNet classification with deep convolutional neural networks. Advances in Neural Information Processing Systems, 25.</li>
+	<li>Su, N. M., & Crandall, D. J. (2021). The affective growth of computer vision. In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em>, pp. 9291–9300. <a href="https://doi.org/10.1109/CVPR46437.2021.00917">https://doi.org/10.1109/CVPR46437.2021.00917</a></li>
+        <li>Huang, G., Liu, Z., Van Der Maaten, L., & Weinberger, K. Q. (2017). Densely connected convolutional networks. In <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em>, pp. 4700–4708. <a href="https://doi.org/10.1109/CVPR.2017.243">https://doi.org/10.1109/CVPR.2017.243</a></li>
+        <li>Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov, D., ... & Rabinovich, A. (2015). Going deeper with convolutions. In <em>Proceedings of Vision and Pattern Recognition</em>, pp. 1–9. <a href="https://doi.org/10.1109/CVPR.2015.7298594">https://doi.org/10.1109/CVPR.2015.7298594</a></li>
+        <li>He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In <em>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition</em>, pp. 770–778. <a href="https://doi.org/10.1109/CVPR.2016.90">https://doi.org/10.1109/CVPR.2016.90</a></li>
+        <li>Anumol, C. S. (2023, November). Advancements in CNN Architectures for Computer Vision: A Comprehensive Review. In 2023 <em>Annual International Conference on Emerging Research Areas: International Conference on Intelligent Systems</em> (AICERA/ICIS), pp. 1–7. IEEE. <a href="https://doi.org/10.1109/AICERA/ICIS59538.2023.10420413">https://doi.org/10.1109/AICERA/ICIS59538.2023.10420413</a></li>
+        <li>Honegger, D., Oleynikova, H., & Pollefeys, M. (2014, September). Real-time and low latency embedded computer vision hardware based on a combination of FPGA and mobile CPU. In <em>2014 IEEE/RSJ International Conference on Intelligent Robots and Systems</em>, pp. 4930–4935. IEEE. <a href="https://doi.org/10.1109/IROS.2014.6943263">https://doi.org/10.1109/IROS.2014.6943263</a></li>
+        <li>Li, Z., Li, H., & Meng, L. (2023). Model compression for deep neural networks: A survey. <em>Computers</em>, <strong>12</strong>(3), 60. <a href="https://doi.org/10.3390/computers12030060">https://doi.org/10.3390/computers12030060</a></li>
+        <li>Divya, R., & Peter, J. D. (2021, November). Quantum machine learning: A comprehensive review on optimization of machine learning algorithms. In 2021 <em>Fourth International Conference on Microelectronics, Signals & Systems</em> (ICMSS), pp. 1–6. IEEE. <a href="https://doi.org/10.1109/ICMSS53060.2021.9673630">https://doi.org/10.1109/ICMSS53060.2021.9673630</a></li>
+        <li>Pandey, S., Basisth, N. J., Sachan, T., Kumari, N., & Pakray, P. (2023). Quantum machine learning for natural language processing application. <em>Physica A: Statistical Mechanics and its Applications</em>, <strong>627</strong>, 129123. <a href="https://doi.org/10.1016/j.physa.2023.129123">https://doi.org/10.1016/j.physa.2023.129123</a></li>
+        <li>Francy, S., & Singh, R. (2024). Edge AI: Evaluation of Model Compression Techniques for Convolutional Neural Networks. <em>arXiv preprint</em> arXiv:2409.02134. <a href="https://doi.org/10.48550/arXiv.2409.02134">https://doi.org/10.48550/arXiv.2409.02134</a></li>
+        <li>Cheng, Y., Wang, D., Zhou, P., & Zhang, T. (2017). A survey of model compression and acceleration for deep neural networks. <em>arXiv preprint arXiv:1710.09282</em>. In Proceedings of the IEEE Signal Processing Magazine, <strong>35</strong>(1), 126–136. <a href="https://doi.org/10.1109/MSP.2017.2765695">https://doi.org/10.1109/MSP.2017.276569</a></li>       
+        <li>Hou, Z., Qin, M., Sun, F., Ma, X., Yuan, K., Xu, Y., ... & Kung, S. Y. (2022) Chex: Channel exploration for CNN model compression. In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em>, pp. 12287–12298. <a href="https://doi.org/10.1109/CVPR52688.2022.01197">https://doi.org/10.1109/CVPR52688.2022.01197/a></li>
+	<li>Han, S., Pool, J., Tran, J., & Dally, W. (2015). Learning both weights and connections for efficient neural network. <em>Advances in Neural Information Processing Systems</em>, <strong>28</strong>. <a href="https://papers.nips.cc/paper/2015/hash/3e15cc52c93b93997f4c62e87d3d0ad7-Abstract.html">NIPS Link</a><a href="https://proceedings.neurips.cc/paper_files/paper/2015/file/ae0eb3eed39d2bcef4622b2499a05fe6-Paper.pdf">NeurIPS Paper Files PDF</a></li>
+        <li>Shi, S., Wang, Z., Cui, G., Wang, S., Shang, R., Li, W., ... & Gu, Y. (2022). Quantum-inspired complex convolutional neural networks. Applied Intelligence, <strong>52</strong>(15), 17912–17921. <a href="https://doi.org/10.1007/s10489-022-03525-0">https://doi.org/10.1007/s10489-022-03525-0</a></li>
+        <li>Hu, Z., Dong, P., Wang, Z., Lin, Y., Wang, Y., & Jiang, W. (2022, October). Quantum neural network compression. In <em>Proceedings of the 41st IEEE/ACM International Conference on Computer-Aided Design</em>, pp. 1–9. <a href="https://doi.org/10.1145/3508352.3549382">https://doi.org/10.1145/3508352.3549382</a></li>
+        <li>Tomut, A., Jahromi, S. S., Singh, S., Ishtiaq, F., Muñoz, C., Bajaj, P. S., ... & Orus, R. (2024). CompactifAI: Extreme Compression of Large Language Models using Quantum-Inspired Tensor Networks. <em>arXiv preprint arXiv</em>:2401.14109. <a href="https/arXiv.2401.14109">https://doi.org/10.48550/arXiv.2401.14109</a></li>
+        <li>LeCun, Y., Boser, B., Denker, J. S., Henderson, D., Howard, R. E., Hubbard, W., & Jackel, L. D. (1989). Backpropagation applied to handwritten zip code recognition. <em>Neural Computation</em>, <strong>1</strong>(4), 541–551. <a href="https://doi.org/10.1162/neco.1989.1.4.541">https://doi.org/10.1162/neco.1989.1.4.541</a></li>
+        <li>Hanson, S., & Pratt, L. (1988). Comparing biases for minimal network construction with backpropagation. <em>Advances in Neural Information Processing Systems</em>, <strong>1</strong>. <a href="https://proceedings.neurips.cc/paper/1988/hash/1c9ac0159c94d8d0cbedc973445af2da-Abstract.html">NIPS</a></li>
+        <li>Hassibi, B., Stork, D. G., & Wolff, G. J. (1993, March). Optimal brain surgeon and general network pruning. In <em>IEEE International Conference on Neural Networks</em>, pp. 293–299. IEEE. <a href="doi:10.1109/ICNN.1993.298572">doi:10.1109/ICNN.1993.298572</a></</li>
+        <li>Farhi, E., Goldstone, J., Gutmann, S., & Zhou, L. (2022). The quantum approximate optimization algorithm and the Sherrington-Kirkpatrick model at infinite size. <em>Quantum</em>, 6, 759.</li> <a href="https://doi.org/10.22331/q-2022-07-07-759">https://doi.org/10.22331/q-2022-07-07-7599</a>
+        <li>Mitarai, K., Negoro, M., Kitagawa, M., & Fujii, K. (2018). Quantum circuit learning. <em>Physical Review A, 98</em>(3), 032309. <a href="https://doi.org/10.1103/PhysRevA.98.032309">https://doi.org/10.1103/PhysRevA.98.032309</a></li>
+        <li>Wang, X., Song, Z., & Wang, Y. (2021). Variational quantum singular value decomposition. <em>Quantum, 5</em>, 483. <a href="https://quantum-journal.org/papers/q-2021-06-29-483/">https://quantum-journal.org/papers/q-2021-06-29-483/</a></li>
+        <li>Gherardi, A., & Leporati, A. (2024). An Analysis of Quantum Annealing Algorithms for Solving the Maximum Clique Problem. <em>arXiv preprint arXiv:2406.07587</em>. <a href="https://doi.org/10.48550/arXiv.2406.07587">https://doi.org/10.48550/arXiv.2406.07587</a></li>
+        <li>Krizhevsky, A., & Hinton, G. (2009). Learning multiple layers of features from tiny images. <a href="https://www.cs.toronto.edu/kriz/learning-features-2009-TR.pdf">https://www.cs.toronto.edu/kriz/learning-features-2009-TR.pdf</a></li>
+        <li>Lu, H., & Zhang, L. (2020). Compressing and Regularizing Deep Neural Networks. O’Reilly Media. <a href="https://www.oreilly.com/content/compressing-and-regularizing-deep-neural-networks/">O’Reilly.</a></li>
           </ol>
         </div>
       </div>
